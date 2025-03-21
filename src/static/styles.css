@@ -97,6 +97,12 @@ section h3 {
   color: #555;
 }
 
+.activity-card ul li::before {
+  content: "👤 ";
+  color: #0066cc;
+  font-weight: bold;
+}
+
 .form-group {
   margin-bottom: 15px;
 }
