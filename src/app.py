@@ -92,8 +92,13 @@ def get_activities():
 def signup_for_activity(activity_name: str, email: str):
     """Sign up a student for an activity"""
     # Validate activity exists
-    if activity_name not in activities:
+    normalized_name = activity_name.lower()
+    activity = next((a for a in activities if a.lower() == normalized_name), None)
+    if not activity:
         raise HTTPException(status_code=404, detail="Activity not found")
+
+    if not email:
+        raise HTTPException(status_code=400, detail="Email is required")
 
     # Get the specificy activity
     activity = activities[activity_name]

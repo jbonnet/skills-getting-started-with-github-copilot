@@ -75,6 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
         messageDiv.textContent = result.message;
         messageDiv.className = "success";
         signupForm.reset();
+        fetchActivities(); // Refresh the activities list
       } else {
         messageDiv.textContent = result.detail || "An error occurred";
         messageDiv.className = "error";
@@ -96,33 +97,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initialize app
   fetchActivities();
-
-  const activities = [
-    {
-      name: "Chess Club",
-      participants: ["michael@mergington.edu", "daniel@mergington.edu"],
-    },
-    {
-      name: "Programming Class",
-      participants: ["emma@mergington.edu", "sophia@mergington.edu"],
-    },
-    // Add other activities here...
-  ];
-
-  const activityCards = document.querySelectorAll(".activity-card");
-
-  activityCards.forEach((card) => {
-    const activityName = card.querySelector("h4").textContent;
-    const activity = activities.find((a) => a.name === activityName);
-
-    if (activity) {
-      const participantList = document.createElement("ul");
-      activity.participants.forEach((participant) => {
-        const listItem = document.createElement("li");
-        listItem.textContent = participant;
-        participantList.appendChild(listItem);
-      });
-      card.appendChild(participantList);
-    }
-  });
 });
