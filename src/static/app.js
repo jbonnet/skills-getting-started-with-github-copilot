@@ -20,6 +20,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const spotsLeft = details.max_participants - details.participants.length;
 
+        // Add a class if the activity is fully booked
+        if (spotsLeft === 0) {
+          activityCard.classList.add("fully-booked");
+        }
+
         activityCard.innerHTML = `
           <h4>${name}</h4>
           <p>${details.description}</p>

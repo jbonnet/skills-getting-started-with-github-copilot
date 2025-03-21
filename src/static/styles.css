@@ -74,6 +74,17 @@ section h3 {
   margin-bottom: 8px;
 }
 
+.activity-card.fully-booked {
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  color: #721c24;
+  opacity: 0.7;
+}
+
+.activity-card.fully-booked h4 {
+  text-decoration: line-through;
+}
+
 .form-group {
   margin-bottom: 15px;
 }
